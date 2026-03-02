@@ -1,0 +1,236 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100dvh;
+    overflow: hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── Split layout ──────────────────────────────────────── */
+
+.layout {
+    display: grid;
+    grid-template-columns: 55fr 45fr;
+    height: 100dvh;
+}
+
+/* ── Left panel ────────────────────────────────────────── */
+
+.panel-left {
+    background: #111827;
+    display: flex;
+    flex-direction: column;
+    padding: 2.25rem 3.5rem;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    padding-bottom: 2.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+}
+
+.brand-mark {
+    width: 32px;
+    height: 32px;
+    background: #f97316;
+    border-radius: 7px;
+    display: grid;
+    place-items: center;
+    font-size: 0.78rem;
+    font-weight: 900;
+    color: white;
+    flex-shrink: 0;
+}
+
+.brand-name {
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #f9fafb;
+}
+
+.gate-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #4ade80;
+    border: 1px solid rgba(74, 222, 128, 0.22);
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+}
+
+.gate-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4ade80;
+    animation: blink 2.4s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+}
+
+/* Scenario — prend tout l'espace restant, contenu centré */
+
+.scenario {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.eyebrow {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #374151;
+    margin-bottom: 1rem;
+}
+
+.context-text {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: #8c9099;
+}
+
+.question-text {
+    margin: 0;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: #f9fafb;
+}
+
+/* ── Right panel ───────────────────────────────────────── */
+
+.panel-right {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.choice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 3.5rem;
+    text-decoration: none;
+    transition: background 0.22s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Barre colorée à gauche, toujours visible */
+.choice::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+}
+
+.choice-a {
+    background: #fdf8f8;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.choice-a::before {
+    background: #fca5a5;
+}
+
+.choice-b {
+    background: #f7faff;
+}
+
+.choice-b::before {
+    background: #93c5fd;
+}
+
+.choice-a:hover {
+    background: #fef2f2;
+}
+
+.choice-b:hover {
+    background: #eff6ff;
+}
+
+.choice-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: transform 0.22s ease;
+}
+
+.choice:hover .choice-inner {
+    transform: translateX(0.5rem);
+}
+
+.choice-tag {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.choice-a .choice-tag { color: #ef4444; }
+.choice-b .choice-tag { color: #3b82f6; }
+
+.choice-label {
+    font-size: clamp(1.3rem, 2vw, 1.65rem);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: #111827;
+}
+
+.choice-consequence {
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #9ca3af;
+}
+
+.choice-arrow {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    color: #d1d5db;
+    transition: transform 0.22s ease, color 0.22s ease;
+    margin-left: 1.5rem;
+}
+
+.choice-a:hover .choice-arrow {
+    transform: translateX(6px);
+    color: #ef4444;
+}
+
+.choice-b:hover .choice-arrow {
+    transform: translateX(6px);
+    color: #3b82f6;
+}

@@ -1,3 +1,5 @@
 spring:
   application:
-    name: demo
+    name: ship-it
+app:
+  sanity-checks-path: classpath:data/sanity-checks.json

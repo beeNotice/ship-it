@@ -1,0 +1,98 @@
+[
+  {
+    "context": "Your AI assistant generated a complete authentication module in 30 seconds. It compiles. The tests pass.",
+    "question": "Do you merge it?",
+    "optionA": {
+      "label": "Merge it — it works",
+      "consequence": "AI-generated code carries a 40% rate of security flaws. A hardcoded secret and two SQL injections go undetected."
+    },
+    "optionB": {
+      "label": "Run Sonar first",
+      "consequence": "3 vulnerabilities caught before merge, including a hardcoded API key. Clean PR."
+    }
+  },
+  {
+    "context": "Your team adopted an AI coding assistant 3 months ago. Velocity doubled. No Quality Gate has been configured in CI/CD.",
+    "question": "Is that fine?",
+    "optionA": {
+      "label": "Velocity is up — don't add friction",
+      "consequence": "Six months later: 340 open issues. Technical debt estimated at 47 days. Nobody wants to touch the codebase."
+    },
+    "optionB": {
+      "label": "Set up Quality Gates from day one",
+      "consequence": "AI productivity stays high. Every PR is automatically checked. Quality scales with the team."
+    }
+  },
+  {
+    "context": "Sprint ends Friday. Two hours left. The feature works, but Sonar reports 12 issues — including one BLOCKER.",
+    "question": "Do you ignore the warnings?",
+    "optionA": {
+      "label": "Disable SonarLint, ship the feature",
+      "consequence": "Tech debt compounds. Three months later, that BLOCKER becomes a production incident."
+    },
+    "optionB": {
+      "label": "Fix the critical issues now",
+      "consequence": "45 minutes of focused work. Zero critical issues at release. The sprint ends clean."
+    }
+  },
+  {
+    "context": "A PR comes in with a new third-party API integration. The key is hardcoded in the source — 'just for testing', says the author.",
+    "question": "Do you approve the PR?",
+    "optionA": {
+      "label": "Approve — we'll clean it up later",
+      "consequence": "The key lands in git history. A public fork leaks it six weeks later. Credential rotation takes a full day."
+    },
+    "optionB": {
+      "label": "Block it — no secrets in code, ever",
+      "consequence": "20 minutes to fix properly with a secrets manager. Zero exposure. The habit sticks across the team."
+    }
+  },
+  {
+    "context": "Sonar flags a dependency with a CVE score of 8.1. Fixing it requires a major version upgrade — roughly two days of work.",
+    "question": "How do you handle it?",
+    "optionA": {
+      "label": "Snooze it — add it to the backlog",
+      "consequence": "The vulnerability is exploited 10 weeks later. Incident response costs 3 weeks, one data breach, and a GDPR fine."
+    },
+    "optionB": {
+      "label": "Prioritize the migration now",
+      "consequence": "Two days of focused work. Full compliance maintained. No breach, no fine, no emergency."
+    }
+  },
+  {
+    "context": "You find a function with a cyclomatic complexity of 47, spanning 500 lines, with zero test coverage. It's been in production for 3 years.",
+    "question": "What do you do?",
+    "optionA": {
+      "label": "Don't touch it — if it works, don't fix it",
+      "consequence": "A new teammate modifies one line. A regression ships to production. It takes a week to trace it back."
+    },
+    "optionB": {
+      "label": "Refactor it progressively",
+      "consequence": "Complexity drops to 9. Two hidden bugs surface and are fixed before they ever reach production."
+    }
+  },
+  {
+    "context": "Coverage is at 78%. Adding tests for the new feature would take 2 extra hours the team feels it doesn't have today.",
+    "question": "Do you ship without tests?",
+    "optionA": {
+      "label": "Ship now, write tests later",
+      "consequence": "'Later' never comes. Coverage drifts to 45% over 6 months. Regressions become routine. Confidence collapses."
+    },
+    "optionB": {
+      "label": "Negotiate scope, protect the coverage gate",
+      "consequence": "One less sub-feature this sprint. Zero regressions next quarter. The Quality Gate holds."
+    }
+  },
+  {
+    "context": "A Stack Overflow snippet from 2019 solves your problem perfectly. It has 847 upvotes and looks clean.",
+    "question": "Do you use it as-is?",
+    "optionA": {
+      "label": "Copy-paste — it's community-validated",
+      "consequence": "The snippet uses MD5 for password hashing and a deprecated crypto function with a known CVE. It ships."
+    },
+    "optionB": {
+      "label": "Review it before using it",
+      "consequence": "10 minutes of review. You switch to bcrypt. Sonar confirms: no vulnerability introduced."
+    }
+  }
+]

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" type="image/svg+xml" href="/favicon/security_icon_241044.svg">
+    <title>Ship It?</title>
+</head>
+<body>
+
+<div class="layout">
+
+    <aside class="panel-left">
+        <header class="app-header">
+            <a href="/" class="brand">
+                <div class="brand-mark">SI</div>
+                <span class="brand-name">Ship It?</span>
+            </a>
+            <div class="gate-badge">
+                <span class="gate-dot"></span>
+                Quality Gate Active
+            </div>
+        </header>
+
+        <div class="scenario">
+            <div>
+                <span class="eyebrow">Context</span>
+                <p class="context-text" th:text="${sanityCheck.context}"></p>
+            </div>
+            <div>
+                <span class="eyebrow">Decision</span>
+                <p class="question-text" th:text="${sanityCheck.question}"></p>
+            </div>
+        </div>
+    </aside>
+
+    <div class="panel-right">
+        <a href="/" class="choice choice-a">
+            <div class="choice-inner">
+                <span class="choice-tag">Option A</span>
+                <span class="choice-label" th:text="${sanityCheck.optionA.label}"></span>
+                <span class="choice-consequence" th:text="${sanityCheck.optionA.consequence}"></span>
+            </div>
+            <span class="choice-arrow">→</span>
+        </a>
+        <a href="/" class="choice choice-b">
+            <div class="choice-inner">
+                <span class="choice-tag">Option B</span>
+                <span class="choice-label" th:text="${sanityCheck.optionB.label}"></span>
+                <span class="choice-consequence" th:text="${sanityCheck.optionB.consequence}"></span>
+            </div>
+            <span class="choice-arrow">→</span>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
