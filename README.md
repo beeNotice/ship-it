@@ -25,3 +25,9 @@ Then open [http://localhost:8080](http://localhost:8080).
 The app cycles through a set of scenarios loaded from `src/main/resources/data/sanity-checks.json`. Each scenario has a context, a question, and two decisions with their respective consequences. The cycle is infinite — click through as many times as you like.
 
 To add or edit scenarios, just update the JSON file.
+
+## Sonar Integration
+
+SonarCloud's automatic analysis does not run tests, so code coverage won't be reported. To enable it, disable automatic analysis and set up a CI pipeline that runs `mvn verify sonar:sonar`.
+
+The `pom.xml` already includes JaCoCo and the required Sonar properties. See the [SonarCloud CI guide](https://docs.sonarsource.com/sonarcloud/advanced-setup/ci-based-analysis/sonarscanner-for-maven/) for setup instructions.
