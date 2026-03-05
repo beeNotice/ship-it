@@ -28,6 +28,23 @@ To add or edit scenarios, just update the JSON file.
 
 ## Sonar Integration
 
+### Analysis
+
 SonarCloud's automatic analysis does not run tests, so code coverage won't be reported. To enable it, disable automatic analysis and set up a CI pipeline that runs `mvn verify sonar:sonar`.
 
 The `pom.xml` already includes JaCoCo and the required Sonar properties. See the [SonarCloud CI guide](https://docs.sonarsource.com/sonarcloud/advanced-setup/ci-based-analysis/sonarscanner-for-maven/) for setup instructions.
+
+### MCP
+
+```powershell
+$env:SONAR_TOKEN = "SONAR_TOKEN"
+$env:SONAR_ORG = "beeNotice"
+
+claude mcp add sonarqube `
+    --env SONARQUBE_TOKEN=$env:SONAR_TOKEN `
+    --env SONARQUBE_ORG=$env:SONAR_ORG `
+    -- `
+    docker run -i --rm --init --pull=always -e SONARQUBE_TOKEN -e SONARQUBE_ORG mcp/sonarqube
+```
+
+Reference : https://docs.sonarsource.com/sonarqube-mcp-server/quickstart-guide
