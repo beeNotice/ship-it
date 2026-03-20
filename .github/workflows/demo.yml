@@ -5,6 +5,8 @@ on:
       - demo
   pull_request:
     types: [opened, synchronize, reopened]
+    branches:
+      - demo
 
 jobs:
   build:
