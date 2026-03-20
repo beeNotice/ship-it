@@ -34,7 +34,7 @@ SonarCloud's automatic analysis does not run tests, so code coverage won't be re
 
 The `pom.xml` already includes JaCoCo and the required Sonar properties. See the [SonarCloud CI guide](https://docs.sonarsource.com/sonarcloud/advanced-setup/ci-based-analysis/sonarscanner-for-maven/) for setup instructions.
 
-### MCP
+### MCP to connect SonarQube Cloud
 
 ```powershell
 $env:SONAR_TOKEN = "SONAR_TOKEN"
@@ -47,4 +47,5 @@ claude mcp add sonarqube `
     docker run -i --rm --init --pull=always -e SONARQUBE_TOKEN -e SONARQUBE_ORG mcp/sonarqube
 ```
 
-Reference : https://docs.sonarsource.com/sonarqube-mcp-server/quickstart-guide
+Reference: https://docs.sonarsource.com/sonarqube-mcp-server/quickstart-guide
+
