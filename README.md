@@ -1,6 +1,6 @@
 # Ship It?
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=beeNotice_ship-it&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=beeNotice_ship-it)
+[![AI Code Assurance](https://sonar.beenotice.com/api/project_badges/ai_code_assurance?project=beeNotice_ship-it_c906d80a-4d85-4318-81db-ec8563e8c48b&token=sqb_744df8094eb2eabb89a23582bbc651be347ee2ab)](https://sonar.beenotice.com/dashboard?id=beeNotice_ship-it_c906d80a-4d85-4318-81db-ec8563e8c48b)
 
 An interactive demo app that puts you in the shoes of a developer making real-world decisions about code quality, security, and engineering practices.
 
