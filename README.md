@@ -34,18 +34,33 @@ SonarCloud's automatic analysis does not run tests, so code coverage won't be re
 
 The `pom.xml` already includes JaCoCo and the required Sonar properties. See the [SonarCloud CI guide](https://docs.sonarsource.com/sonarcloud/advanced-setup/ci-based-analysis/sonarscanner-for-maven/) for setup instructions.
 
-### MCP to connect SonarQube Cloud
+### MCP to connect SonarQube Server
 
-```powershell
-$env:SONAR_TOKEN = "SONAR_TOKEN"
-$env:SONAR_ORG = "beeNotice"
+The MCP server is configured at the project level via `.mcp.json` — no global installation needed.
 
-claude mcp add sonarqube `
-    --env SONARQUBE_TOKEN=$env:SONAR_TOKEN `
-    --env SONARQUBE_ORG=$env:SONAR_ORG `
-    -- `
-    docker run -i --rm --init --pull=always -e SONARQUBE_TOKEN -e SONARQUBE_ORG mcp/sonarqube
+**1. Set your credentials** in `private/.env` (gitignored):
+
+```env
+SONARQUBE_TOKEN=your_sonar_token_here
+SONARQUBE_URL=https://sonar.beenotice.com
 ```
+
+**2. Load the env file before starting Claude:**
+
+PowerShell:
+```powershell
+Get-Content private/.env | ForEach-Object {
+    $parts = $_ -split '=', 2
+    [System.Environment]::SetEnvironmentVariable($parts[0], $parts[1])
+}
+claude
+
+What are the sonarqube issues on the PR ?
+
+```
+
+
+The `.mcp.json` at the project root registers the SonarQube MCP server automatically for this project. The `SONARQUBE_TOKEN` and `SONARQUBE_URL` variables are passed through to the Docker container at runtime.
 
 Reference: https://docs.sonarsource.com/sonarqube-mcp-server/quickstart-guide
 

@@ -7,7 +7,6 @@ on:
     types: [opened, synchronize, reopened]
     branches:
       - demo
-
 jobs:
   build:
     name: Build and analyze
