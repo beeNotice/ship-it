@@ -3,10 +3,10 @@
     "sonarqube": {
       "command": "docker",
       "args": [
-        "run", "-i", "--rm", "--init", "--pull=always",
+        "run", "-i", "--rm", "--init",
         "-e", "SONARQUBE_TOKEN",
         "-e", "SONARQUBE_URL",
-        "mcp/sonarqube"
+        "mcp/sonarqube:working"
       ]
     }
   }
