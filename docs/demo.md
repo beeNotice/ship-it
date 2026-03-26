@@ -61,3 +61,9 @@ What are the Sonarqube issues of the PR related to the feature/read-only-adminis
 What is the Sonar project status? Present it in a way that I can share with my CISO.
 What's your opinion regarding the Opened Security Hotspot you found?
 ```
+
+### Clean Up
+
+- Close PR on Github
+- Delete PR branch on Sonarqube
+
