@@ -2,11 +2,11 @@ name: SonarQube
 on:
   push:
     branches:
-      - main
+      - disabled
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
-      - main
+      - disabled
 jobs:
   build:
     name: Build and analyze
